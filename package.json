@@ -1,0 +1,25 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "team profile generator to create html site with team member's info",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhw-git/Team-Profile-Generator.git"
+  },
+  "author": "ruohan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rhw-git/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/rhw-git/Team-Profile-Generator#readme",
+  "devDependencies": {
+    "jest": "^26.2.2"
+  },
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
+}
