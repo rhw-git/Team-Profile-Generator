@@ -22,14 +22,14 @@ test("get the id of the employee", () => {
   const employee = new Employee("", 123, "");
   expect(employee.getId()).toBe(123);
 });
-//--------------- test getmail ----------------//
-test("get the id of the employee", () => {
+//--------------- test getEmail ----------------//
+test("get the email of the employee", () => {
   // call for constructor Employee
   const employee = new Employee("", 123, "Dave@gmail.com");
   expect(employee.getEmail()).toBe("Dave@gmail.com");
 });
 //--------------- test getRole ----------------//
-test("get the id of the employee", () => {
+test("get the role of the employee", () => {
   // call for constructor Employee
   const employee = new Employee("", 123, "", "Employee");
   expect(employee.getRole()).toBe("Employee");
