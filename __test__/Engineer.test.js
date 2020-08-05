@@ -34,3 +34,13 @@ test("get githubName", () => {
   );
   console.log(engineer.getGithub());
 });
+test("this getRole function repond to role override to engineer", () => {
+  const engineer = new Engineer(
+    "Dave",
+    123,
+    "Dave@gmail.com",
+    "Engineer",
+    "dave"
+  );
+  expect(engineer.getRole()).toBe("Engineer");
+});
