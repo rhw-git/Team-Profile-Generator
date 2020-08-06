@@ -1,10 +1,12 @@
 const inquirer = require("inquirer");
-const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const { writeFile, copyFile } = require("./utils/generate-site");
 // const generatePage = require("./src/page-template");
+
+let engineerArr = [];
+let internArr = [];
 promptManager = function () {
   inquirer
     .prompt([
@@ -92,7 +94,7 @@ promptAddMember = function () {
     });
 };
 promptEngineer = function () {
-  inquirer
+  return inquirer
     .prompt([
       {
         type: "input",
@@ -152,15 +154,20 @@ promptEngineer = function () {
       engineer.name = engineerName;
       engineer.id = engineerId;
       engineer.email = engineerEmail;
-      engineer.github = engineerGithub;
+      engineer.githubName = engineerGithub;
       engineer.role = "engineer";
-      console.table(engineer);
+      //   console.table(engineer);
       return engineer;
+    })
+    .then((engineer) => {
+      engineerArr.push(engineer);
+      console.table(engineerArr);
+      return engineerArr;
     })
     .then(promptAddMember);
 };
 promptIntern = function () {
-  inquirer
+  return inquirer
     .prompt([
       {
         type: "input",
@@ -224,6 +231,11 @@ promptIntern = function () {
       intern.role = "intern";
       console.table(intern);
       return intern;
+    })
+    .then((intern) => {
+      internArr.push(intern);
+      console.table(internArr);
+      return internArr;
     })
     .then(promptAddMember);
 };
