@@ -3,12 +3,12 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const { writeFile, copyFile } = require("./utils/generate-site");
-// const generatePage = require("./src/page-template");
+const generatePage = require("./src/page-template");
 
 let engineerArr = [];
 let internArr = [];
 promptManager = function () {
-  inquirer
+  return inquirer
     .prompt([
       {
         type: "input",
@@ -72,11 +72,11 @@ promptManager = function () {
       manager.role = "manager";
       console.table(manager);
       return manager;
-    })
-    .then(promptAddMember);
+    });
+  // .then(promptAddMember);
 };
 promptAddMember = function () {
-  inquirer
+  return inquirer
     .prompt({
       type: "list",
       name: "addMember",
@@ -240,5 +240,8 @@ promptIntern = function () {
     .then(promptAddMember);
 };
 
-promptManager();
-// promptEngineer();
+promptManager()
+  .then(promptAddMember)
+  .then((engineerArr, internArr, manager) => {
+    return generatePage(engineerArr, internArr, manager);
+  });
