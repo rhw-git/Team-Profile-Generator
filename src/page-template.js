@@ -1,6 +1,6 @@
 const generateCardManager = (managerObj) => {
   return `
-    <div class="card shadow" style="width: 18rem;">
+    <section class="card shadow mb-3" style="width: 18rem;">
       <div class="card-title bg-success px-4 py-2">
         <h5 class="text-white">${managerObj.name}</h5>
         <h6 class="text-white"><span><i class="fas fa-mug-hot" style="color:white"></i></span> Manager </h6>
@@ -12,13 +12,40 @@ const generateCardManager = (managerObj) => {
             <p>Office number: ${managerObj.officeNum}</p>
           </div>
       </div>
-    </div>
+    </section>
+  `;
+};
+
+const generateCardEngineer = (engineerArr) => {
+  if (!engineerArr) {
+    return "";
+  }
+  return `
+      ${engineerArr
+        .map(({ engineerName, engineerId, engineerEmail, engineerGithub }) => {
+          return `
+            <section class="card shadow mmb-3" style="width: 18rem;">
+              <div class="card-title bg-success px-4 py-2">
+                <h5 class="text-white">${engineerName}</h5>
+                <h6 class="text-white"><span><i class="fas fa-glasses" style="color:white"></i></span> Engineer </h6>
+              </div>
+              <div class="card-body">     
+              <div class="container">
+                  <p>ID: ${engineerId}</p>
+                  <p>Email: <a href ="mailto:" ${engineerEmail}>${engineerGithub}</a></p>
+                  <p>GitHub: <a href = "https://github.com/"${engineerGithub}"-git">"https://github.com/"${engineerGithub}"-git"</a></p>
+                </div>
+              </div>
+            </section>
+          `;
+        })
+        .join("")}
   `;
 };
 
 module.exports = (templateData) => {
   // destructing templateData
-  const [manager, engineerArr, internArr] = templateData;
+  let [manager, engineerArr, internArr] = templateData;
   //-------------------- generate head of html --------------------//
   return `
   <!DOCTYPE html>
@@ -35,11 +62,14 @@ module.exports = (templateData) => {
   <body>
     <header>
       <div class ="container-fluid ">
-        <h1 class="text-light bg-primary text-center p-3">My Team</h1>
+        <h1 class="text-light bg-primary text-center p-3 mb-5">My Team</h1>
       </div>
     </header>
     <main class ="container">
-      ${generateCardManager(manager)}
+      <div class="row justify-content-around">
+        ${generateCardManager(manager)}
+        
+      </div>
     </main>
   </body>
   </html>
