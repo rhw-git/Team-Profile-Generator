@@ -89,7 +89,7 @@ promptAddMember = function () {
         promptIntern();
       } else {
         let employeeProfoiles = [manager, engineerArr, internArr];
-        console.log(employeeProfoiles);
+        // console.log(employeeProfoiles);
         return employeeProfoiles;
       }
     });
@@ -238,7 +238,8 @@ promptIntern = function () {
     .then(promptAddMember);
 };
 
-promptManager().then(promptAddMember);
-//   .then((employeeArr) => {
-//     console.log(employeeArr);
-// return generatePage(engineerArr, internArr, manager);
+promptManager()
+  .then(promptAddMember)
+  .then((employeeProfoiles) => {
+    console.log(employeeProfoiles);
+  });
