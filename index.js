@@ -89,12 +89,14 @@ promptAddMember = function () {
         promptIntern();
       } else {
         let employeeProfoiles = [manager, engineerArr, internArr];
-        return employeeProfoiles;
+        let pageHTML = generatePage(employeeProfoiles);
+        writeFile(pageHTML);
+        // copyFile();
       }
     });
 };
 promptEngineer = function () {
-  return inquirer
+  inquirer
     .prompt([
       {
         type: "input",
@@ -236,21 +238,4 @@ promptIntern = function () {
     .then(promptAddMember);
 };
 
-promptManager()
-  .then(promptAddMember)
-  .then((employeeProfoiles) => {
-    return generatePage(employeeProfoiles);
-  })
-  .then((pageHTML) => {
-    return writeFile(pageHTML);
-  })
-  .then((writeFileResponse) => {
-    console.log(writeFileResponse);
-    return copyFile();
-  })
-  .then((copyFileResponse) => {
-    console.log(copyFileResponse);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+promptManager().then(promptAddMember);

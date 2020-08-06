@@ -1,15 +1,19 @@
+const Manager = require("../lib/Manager");
+const Engineer = require("../lib/Engineer");
+const Intern = require("../lib/Intern");
+
 const generateCardManager = (managerObj) => {
   return `
-    <section class="card shadow mb-3" style="width: 18rem;">
+    <section class="card shadow mb-3" style="width: 22rem;">
       <div class="card-title bg-success px-4 py-2">
-        <h5 class="text-white">${managerObj.name}</h5>
+        <h5 class="text-white">${managerObj.getName()}</h5>
         <h6 class="text-white"><span><i class="fas fa-mug-hot" style="color:white"></i></span> Manager </h6>
       </div>
       <div class="card-body">     
           <div class="container">
-            <p>ID: ${managerObj.id}</p>
-            <p>Email: <a href ="mailto:" ${managerObj.email}>${managerObj.email}</a></p>
-            <p>Office number: ${managerObj.officeNum}</p>
+            <p>ID: ${managerObj.getId()}</p>
+            <p>Email: <a href ="mailto:" ${managerObj.getEmail()}>${managerObj.getEmail()}</a></p>
+            <p>Office number: ${managerObj.getOfficeNum()}</p>
           </div>
       </div>
     </section>
@@ -22,18 +26,18 @@ const generateCardEngineer = (engineerArr) => {
   }
   return `
       ${engineerArr
-        .map(({ engineerName, engineerId, engineerEmail, engineerGithub }) => {
+        .map(({ name, id, email, githubName }) => {
           return `
-            <section class="card shadow mmb-3" style="width: 18rem;">
+            <section class="card shadow mb-3" style="width: 22rem;">
               <div class="card-title bg-success px-4 py-2">
-                <h5 class="text-white">${engineerName}</h5>
+                <h5 class="text-white">${name}</h5>
                 <h6 class="text-white"><span><i class="fas fa-glasses" style="color:white"></i></span> Engineer </h6>
               </div>
               <div class="card-body">     
               <div class="container">
-                  <p>ID: ${engineerId}</p>
-                  <p>Email: <a href ="mailto:" ${engineerEmail}>${engineerGithub}</a></p>
-                  <p>GitHub: <a href = "https://github.com/"${engineerGithub}"-git">"https://github.com/"${engineerGithub}"-git"</a></p>
+                  <p>ID: ${id}</p>
+                  <p>Email: <a href ="mailto:" ${email}>${email}</a></p>
+                  <p>GitHub: <a href = "https://github.com/${githubName}-git">"https://github.com/${githubName}-git"</a></p>
                 </div>
               </div>
             </section>
@@ -41,6 +45,33 @@ const generateCardEngineer = (engineerArr) => {
         })
         .join("")}
   `;
+};
+
+const generateCardIntern = (internArr) => {
+  if (!internArr) {
+    return "";
+  }
+  return `
+        ${internArr
+          .map(({ name, id, email, school }) => {
+            return `
+              <section class="card shadow mb-3" style="width: 22rem;">
+                <div class="card-title bg-success px-4 py-2">
+                  <h5 class="text-white">${name}</h5>
+                  <h6 class="text-white"><span><i class="fas fa-glasses" style="color:white"></i></span> Intern </h6>
+                </div>
+                <div class="card-body">     
+                <div class="container">
+                    <p>ID: ${id}</p>
+                    <p>Email: <a href ="mailto:" ${email}>${email}</a></p>
+                    <p>School: ${school}</p>
+                  </div>
+                </div>
+              </section>
+            `;
+          })
+          .join("")}
+    `;
 };
 
 module.exports = (templateData) => {
@@ -68,7 +99,8 @@ module.exports = (templateData) => {
     <main class ="container">
       <div class="row justify-content-around">
         ${generateCardManager(manager)}
-        
+        ${generateCardEngineer(engineerArr)}
+        ${generateCardIntern(internArr)}  
       </div>
     </main>
   </body>

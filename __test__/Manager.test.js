@@ -10,3 +10,7 @@ test("the getRole function respond to role override to manager", () => {
   const manager = new Manager("Dave", 123, "Dave@gmail.com", "Manager", 456);
   expect(manager.getRole()).toBe("Manager");
 });
+test("get office number function", () => {
+  const manager = new Manager("Dave", 123, "Dave@gmail.com", "Manager", 456);
+  expect(manager.getOfficeNum()).toBe(456);
+});
