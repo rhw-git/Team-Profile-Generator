@@ -89,7 +89,6 @@ promptAddMember = function () {
         promptIntern();
       } else {
         let employeeProfoiles = [manager, engineerArr, internArr];
-        // console.log(employeeProfoiles);
         return employeeProfoiles;
       }
     });
@@ -157,7 +156,6 @@ promptEngineer = function () {
       engineer.email = engineerEmail;
       engineer.githubName = engineerGithub;
       engineer.role = "engineer";
-      //   console.table(engineer);
       return engineer;
     })
     .then((engineer) => {
@@ -241,5 +239,18 @@ promptIntern = function () {
 promptManager()
   .then(promptAddMember)
   .then((employeeProfoiles) => {
-    console.log(employeeProfoiles);
+    return generatePage(employeeProfoiles);
+  })
+  .then((pageHTML) => {
+    return writeFile(pageHTML);
+  })
+  .then((writeFileResponse) => {
+    console.log(writeFileResponse);
+    return copyFile();
+  })
+  .then((copyFileResponse) => {
+    console.log(copyFileResponse);
+  })
+  .catch((err) => {
+    console.log(err);
   });
