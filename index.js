@@ -70,7 +70,6 @@ promptManager = function () {
       manager.email = managerEmail;
       manager.officeNum = officeNum;
       manager.role = "manager";
-      console.table(manager);
       return manager;
     });
   // .then(promptAddMember);
@@ -89,7 +88,9 @@ promptAddMember = function () {
       } else if (addMember === "add Intern") {
         promptIntern();
       } else {
-        return;
+        let employeeProfoiles = [manager, engineerArr, internArr];
+        console.log(employeeProfoiles);
+        return employeeProfoiles;
       }
     });
 };
@@ -161,7 +162,6 @@ promptEngineer = function () {
     })
     .then((engineer) => {
       engineerArr.push(engineer);
-      console.table(engineerArr);
       return engineerArr;
     })
     .then(promptAddMember);
@@ -229,19 +229,16 @@ promptIntern = function () {
       intern.email = internEmail;
       intern.school = internSchool;
       intern.role = "intern";
-      console.table(intern);
       return intern;
     })
     .then((intern) => {
       internArr.push(intern);
-      console.table(internArr);
       return internArr;
     })
     .then(promptAddMember);
 };
 
-promptManager()
-  .then(promptAddMember)
-  .then((engineerArr, internArr, manager) => {
-    return generatePage(engineerArr, internArr, manager);
-  });
+promptManager().then(promptAddMember);
+//   .then((employeeArr) => {
+//     console.log(employeeArr);
+// return generatePage(engineerArr, internArr, manager);
