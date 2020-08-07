@@ -91,7 +91,7 @@ promptAddMember = function () {
         let employeeProfoiles = [manager, engineerArr, internArr];
         let pageHTML = generatePage(employeeProfoiles);
         writeFile(pageHTML);
-        // copyFile();
+        copyFile();
       }
     });
 };
