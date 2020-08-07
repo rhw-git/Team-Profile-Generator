@@ -72,7 +72,6 @@ promptManager = function () {
       manager.role = "manager";
       return manager;
     });
-  // .then(promptAddMember);
 };
 promptAddMember = function () {
   return inquirer

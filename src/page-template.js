@@ -58,7 +58,7 @@ const generateCardIntern = (internArr) => {
               <section class="card shadow mb-3" style="width: 22rem;">
                 <div class="card-title bg-success px-4 py-2">
                   <h5 class="text-white">${name}</h5>
-                  <h6 class="text-white"><span><i class="fas fa-glasses" style="color:white"></i></span> Intern </h6>
+                  <h6 class="text-white"><span><i class="fas fa-user-graduate" style="color:white"></i></span> Intern </h6>
                 </div>
                 <div class="card-body">     
                 <div class="container">
@@ -93,7 +93,7 @@ module.exports = (templateData) => {
   <body>
     <header>
       <div class ="container-fluid ">
-        <h1 class="text-light bg-primary text-center p-3 mb-5">My Team</h1>
+        <h1 class="text-light text-center p-3 mb-5">My Team</h1>
       </div>
     </header>
     <main class ="container">

@@ -28,7 +28,7 @@ const copyFile = () => {
       }
       resolve({
         ok: true,
-        message: "file copied!",
+        message: "File copied!",
       });
     });
   });
