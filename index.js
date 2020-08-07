@@ -89,8 +89,17 @@ promptAddMember = function () {
       } else {
         let employeeProfoiles = [manager, engineerArr, internArr];
         let pageHTML = generatePage(employeeProfoiles);
-        writeFile(pageHTML);
-        copyFile();
+        writeFile(pageHTML)
+          .then((writeFileResponse) => {
+            console.log(writeFileResponse);
+            return copyFile();
+          })
+          .then((copyFileResponse) => {
+            console.log(copyFileResponse);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     });
 };

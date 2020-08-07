@@ -1,6 +1,6 @@
 // import fs library
 const fs = require("fs");
-// write html
+
 const writeFile = (fileContent) => {
   return new Promise((resolve, reject) => {
     fs.writeFile("./dist/index.html", fileContent, (err) => {
@@ -18,10 +18,10 @@ const writeFile = (fileContent) => {
     });
   });
 };
-// copy css file to dist folder
+
 const copyFile = () => {
   return new Promise((resolve, reject) => {
-    fs.copyFile("../src/style.css", "../dist/style.css", (err) => {
+    fs.copyFile("./src/style.css", "./dist/style.css", (err) => {
       if (err) {
         reject(err);
         return;
