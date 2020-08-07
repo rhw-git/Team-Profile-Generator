@@ -6,6 +6,8 @@
   
   ## Screenshot
   
+  https://github.com/rhw-git/Team-Profile-Generator/blob/master/src/team-profile-generator.webm
+  
   ## Link of vedio
 
   ## Contribution
