@@ -93,7 +93,7 @@ module.exports = (templateData) => {
   <body>
     <header>
       <div class ="container-fluid ">
-        <h1 class="text-light bg-primary text-center p-3 mb-5">My Team</h1>
+        <h1 class="text-light text-center p-3 mb-5">My Team</h1>
       </div>
     </header>
     <main class ="container">
