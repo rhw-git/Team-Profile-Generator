@@ -3,12 +3,10 @@
   ##  Description
 
   Gnerating readme markdown file per answers from command-line promptse
-  
-  ## Screenshot
-  
-  https://github.com/rhw-git/Team-Profile-Generator/blob/master/src/team-profile-generator.webm
-  
+ 
   ## Link of vedio
+    
+  https://github.com/rhw-git/Team-Profile-Generator/blob/master/src/team-profile-generator.webm
 
   ## Contribution
 
